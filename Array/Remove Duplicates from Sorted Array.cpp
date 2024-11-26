@@ -3,66 +3,67 @@
 // Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 // #### 1. Understanding
-// - Input: [what are we given?]
-// - Output: [what do we need to return?]
-// - Constraints: [list key constraints]
-// - Edge cases: [list potential edge cases]
+// - Input: nums = [1,1,2]
+// - Output: 2, nums = [1,2,_]
+// - Constraints: 1 <= nums.length <= 3 * 104
+// -100 <= nums[i] <= 100
+// nums is sorted in non-decreasing order.
+// - Edge cases: An empty array maybe
 
 // #### 2. Pattern Recognition
-// - Category: [e.g., Array, Tree, DP, etc.]
-// - Similar problems: [reference related problems]
-// - Key patterns: [identify relevant patterns]
+// - Category: Array
+// - Similar problems: https://leetcode.com/problems/remove-element/
+// - Key patterns: In-Place Array Modification
 
 // #### 3. Approach
-// Time Complexity: O(?)
-// Space Complexity: O(?)
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 // Key Ideas:
-// 1. [Step 1]
-// 2. [Step 2]
-// 3. [Step 3]
+// 1. Maintain i and j such that i is used to traverse and j points to the second duplicate and is replaced with the next unique element
+// 2. Do step 1 in a for loop until the end of the array is reached
+// 3. Return j, which will tell us the number of unique elements
 
-/*
- * Problem: [Title]
- * Approach: [Brief description]
- * Time: O(?)
- * Space: O(?)
- */
+
+//Solution
 class Solution {
-private:
-    // Helper functions (if needed)
-    
 public:
-    returnType functionName(parameters) {
-        // 1. Input validation
+    int removeDuplicates(vector<int>& nums) {
         
-        // 2. Initialize variables
-        
-        // 3. Main logic
-        
-        // 4. Return result
+        int j = 1; 
+
+        for(int i = 1; i < nums.size() ; i++)
+        {
+
+                if(nums[i-1] != nums[i])
+                {
+                    nums[j] = nums[i];
+                    j++;
+
+
+                } // try not equal case instead of equal
+
+
+        }
+
+    return j; 
     }
 };
 
-/*
- * Test cases:
- * 1. Normal case: [input] → [expected output]
- * 2. Edge case: [input] → [expected output]
- * 3. Corner case: [input] → [expected output]
- */
+
 
 
 // ### Post-Solution Analysis
 // - What worked:
-//   • [List successful approaches]
+//   • The inequality approach 
 // - What didn't work:
-//   • [List failed attempts]
+//   • I tried the other method where I maintained two pointers i and j in the beginning and end, that seemed to cause problems in terms of returning the number of unique elements, will revsisit
 // - Key lessons:
-//   • [List learnings]
+//   • Try inequalities instead of straightforward equalities for problems like this too
 // - Optimization opportunities:
-//   • [List possible improvements]
+//   • This is the best time complexity we can get
 
 // ### Common Patterns Used
-// 1. [Pattern name]
-//    - When to use
-//    - Key implementation details
-//    - Common pitfalls
+// 1. The inequality pattern
+//    - When to use: Specifically try to use it in comparison problems
+//    - Key implementation details NA
+//    - Common pitfalls NA
