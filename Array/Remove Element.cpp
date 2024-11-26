@@ -124,6 +124,7 @@ return i;
                 //to make this work, it was skipping over elements that needed to be copied over
 // - Key lessons:
 //   • Always check out of bounds conditions
+//   • I checked the not equal case instead of the equality (nums[i] != val)
 // - Optimization opportunities:
 //   • I tried to optimize using the while loop and dividing, but it was the same complexity in the end
 
