@@ -180,6 +180,7 @@ public:
 //   • Each of them could be used but count seems to be the fastest
 //   • pop does NOT return anything
 //   • Unordered maps are optimized for key lookups but not value lookups
+//   • string::npos is used with string member functions like find(), while .end() is used with iterators.
 // - Optimization opportunities:
 //   • I feel that the second solution is more optimized than the first, also count() is the most efficient 
 
